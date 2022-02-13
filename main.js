@@ -23,3 +23,44 @@ function speak(){
     var speakthis=new SpeechSynthesisUtterance(speak1+speak2);
     synth.speak(speakthis);
 }
+function predictEmotion() {
+    img = document.getElementById("image1");
+    classifier.classify(img, gotResult);
+
+}
+function gotResult(error, results) {
+    if (error) {
+        console.error(error);
+    }
+
+    else {
+        console.log(results);
+        prediction1=results[0].label;
+        prediction2=results[1].label;
+
+
+
+
+        
+
+        document.getElementById("result_emotion_name").innerHTML=prediction;
+        speak();
+        if(prediction=="good"){
+            document.getElementById("update_emoji").innerHTML="&#128077;";
+        }
+        if(prediction=="super"){
+            document.getElementById("update_emoji").innerHTML="&#128076;";
+        }
+        if(prediction=="deer"){
+            document.getElementById("update_emoji").innerHTML="&#129304;";
+        }
+        if(prediction=="hai"){
+            document.getElementById("update_emoji").innerHTML="&#128400;";
+        }
+        if(prediction=="twice"){
+            document.getElementById("update_emoji").innerHTML="&#9996;";
+        }
+    }
+}
+    
+    
