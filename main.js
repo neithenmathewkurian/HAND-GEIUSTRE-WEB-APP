@@ -12,7 +12,7 @@ function takepicture(){
          '<img id="image1" src="'+data_uri+'"/>';
     } );
 }
-classifier=ml5.imageClassifier("https://teachablemachine.withgoogle.com/models/XhkGdYWsd/model.json",modelLoaded);
+classifier=ml5.imageClassifier("https://teachablemachine.withgoogle.com/models/moCUWui1R/model.json",modelLoaded);
 function modelLoaded(){
     console.log("succcessfuly loaded");
 }
