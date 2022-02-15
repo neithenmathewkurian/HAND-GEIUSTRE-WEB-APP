@@ -13,17 +13,17 @@ span
   width: 350px;
   height: 300px; 
 }
-#result_emotion_name ,#result_emotion_name2  
+#result_handgusture_name
 {
   color: black;
 }
-.emotion_name
+.handgusture_name
 {
   font-size: 40px;
 }
-.emoji
+.handgusture
 {
-  font-size:48px;
+  font: size 48px;
 }
 .heading{
   font-size:18px;

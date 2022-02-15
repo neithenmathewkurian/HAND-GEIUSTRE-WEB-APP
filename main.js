@@ -12,15 +12,15 @@ function takepicture(){
          '<img id="image1" src="'+data_uri+'"/>';
     } );
 }
+var prediction="";
 classifier=ml5.imageClassifier("https://teachablemachine.withgoogle.com/models/moCUWui1R/model.json",modelLoaded);
 function modelLoaded(){
     console.log("succcessfuly loaded");
 }
 function speak(){
     var synth=window.speechSynthesis;
-    speak1="first prediction is "+prediction1;
-    speak2="second prediction is "+prediction2;
-    var speakthis=new SpeechSynthesisUtterance(speak1+speak2);
+    speak1="first prediction is "+prediction;
+    var speakthis=new SpeechSynthesisUtterance(speak1);
     synth.speak(speakthis);
 }
 function predictEmotion() {
@@ -35,30 +35,23 @@ function gotResult(error, results) {
 
     else {
         console.log(results);
-        prediction1=results[0].label;
-        prediction2=results[1].label;
-
-
-
-
-        
-
-        document.getElementById("result_emotion_name").innerHTML=prediction;
+        prediction=results[0].label;
+        document.getElementById("result_handgesturename").innerHTML=prediction;
         speak();
         if(prediction=="good"){
-            document.getElementById("update_emoji").innerHTML="&#128077;";
+            document.getElementById("update_handgesture").innerHTML="&#128077;";
         }
         if(prediction=="super"){
-            document.getElementById("update_emoji").innerHTML="&#128076;";
+            document.getElementById("update_handgesture").innerHTML="&#128076;";
         }
         if(prediction=="deer"){
-            document.getElementById("update_emoji").innerHTML="&#129304;";
+            document.getElementById("update_handgesture").innerHTML="&#129304;";
         }
         if(prediction=="hai"){
-            document.getElementById("update_emoji").innerHTML="&#128400;";
+            document.getElementById("update_handgesture").innerHTML="&#128400;";
         }
         if(prediction=="twice"){
-            document.getElementById("update_emoji").innerHTML="&#9996;";
+            document.getElementById("update_handgesture").innerHTML="&#9996;";
         }
     }
 }
